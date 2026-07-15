@@ -1,0 +1,48 @@
+{
+  "users": [
+    {
+      "id": "u1",
+      "name": "Demo User",
+      "email": "demo@projecthub.com",
+      "password": "PLACEHOLDER"
+    },
+    {
+      "id": "u2",
+      "name": "Riya Sharma",
+      "email": "riya@projecthub.com",
+      "password": "PLACEHOLDER"
+    }
+  ],
+  "projects": [
+    {
+      "id": "p1",
+      "name": "Website Redesign",
+      "description": "Revamp the college club website with a new look.",
+      "ownerId": "u1",
+      "memberIds": ["u1", "u2"],
+      "createdAt": "2026-07-10T10:00:00.000Z"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "projectId": "p1",
+      "title": "Design homepage mockup",
+      "description": "Create a Figma mockup for the new homepage",
+      "status": "in-progress",
+      "assigneeId": "u2",
+      "dueDate": "2026-07-20",
+      "createdAt": "2026-07-10T11:00:00.000Z"
+    },
+    {
+      "id": "t2",
+      "projectId": "p1",
+      "title": "Set up hosting",
+      "description": "Configure hosting and domain",
+      "status": "todo",
+      "assigneeId": "u1",
+      "dueDate": "2026-07-22",
+      "createdAt": "2026-07-10T11:05:00.000Z"
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ProjectHub — Project Management Portal</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div id="authScreen" class="screen">
+    <div class="card">
+      <h1>ProjectHub</h1>
+      <p class="subtitle">Project Management Portal</p>
+
+      <div class="tabs">
+        <button id="loginTab" class="tab active">Login</button>
+        <button id="registerTab" class="tab">Register</button>
+      </div>
+
+      <form id="loginForm">
+        <input type="email" id="loginEmail" placeholder="Email" value="demo@projecthub.com" required />
+        <input type="password" id="loginPassword" placeholder="Password" value="demo1234" required />
+        <button type="submit" class="btn-primary">Login</button>
+        <p class="hint">Demo account pre-filled. There's also riya@projecthub.com / demo1234 to test collaboration in a second browser tab.</p>
+      </form>
+
+      <form id="registerForm" class="hidden">
+        <input type="text" id="registerName" placeholder="Full name" required />
+        <input type="email" id="registerEmail" placeholder="Email" required />
+        <input type="password" id="registerPassword" placeholder="Password" required />
+        <button type="submit" class="btn-primary">Create account</button>
+      </form>
+
+      <p id="authError" class="error hidden"></p>
+    </div>
+  </div>
+
+  <div id="appScreen" class="screen hidden">
+    <!-- Projects list view -->
+    <div id="projectsView" class="view">
+      <header>
+        <h1>ProjectHub</h1>
+        <div>
+          <span id="userName"></span>
+          <button id="logoutBtn" class="btn-secondary">Logout</button>
+        </div>
+      </header>
+      <main>
+        <div class="section-head">
+          <h2>Your Projects</h2>
+          <button id="newProjectBtn" class="btn-primary small">+ New Project</button>
+        </div>
+        <div id="projectList" class="project-list"></div>
+      </main>
+    </div>
+
+    <!-- New project form (modal-like inline panel) -->
+    <div id="newProjectPanel" class="view hidden">
+      <header>
+        <h1>New Project</h1>
+        <button id="cancelNewProject" class="btn-secondary">Back</button>
+      </header>
+      <main>
+        <form id="projectForm" class="simple-form">
+          <input type="text" id="projectName" placeholder="Project name" required />
+          <textarea id="projectDesc" placeholder="Description" rows="3"></textarea>
+          <button type="submit" class="btn-primary">Create Project</button>
+        </form>
+      </main>
+    </div>
+
+    <!-- Single project board view -->
+    <div id="boardView" class="view hidden">
+      <header>
+        <div>
+          <h1 id="boardProjectName">Project</h1>
+          <p id="boardProjectDesc" class="board-desc"></p>
+        </div>
+        <div>
+          <button id="addMemberBtn" class="btn-secondary small">+ Add Member</button>
+          <button id="backToProjectsBtn" class="btn-secondary">Back</button>
+        </div>
+      </header>
+      <main>
+        <div id="memberChips" class="member-chips"></div>
+
+        <form id="taskForm" class="task-form">
+          <input type="text" id="taskTitle" placeholder="Task title" required />
+          <select id="taskAssignee"></select>
+          <input type="date" id="taskDueDate" />
+          <button type="submit" class="btn-primary">Add Task</button>
+        </form>
+
+        <div class="board">
+          <div class="board-col" data-status="todo">
+            <h3>To Do</h3>
+            <div class="task-col" id="col-todo"></div>
+          </div>
+          <div class="board-col" data-status="in-progress">
+            <h3>In Progress</h3>
+            <div class="task-col" id="col-in-progress"></div>
+          </div>
+          <div class="board-col" data-status="done">
+            <h3>Done</h3>
+            <div class="task-col" id="col-done"></div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
